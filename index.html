@@ -6,11 +6,27 @@
     <title>Hello world</title>
     <script type="text/javascript" src="a.out.js"></script>
     <script type="text/javascript">
+      function hello() {
+        var name   = document.getElementById("name");
+        var output = document.getElementById("output");
+        console.log(name.value);
+        if (name.value.length > 0) {
+          var pname = Module._malloc(1024);
+          var pout  = Module._malloc(1024);
+          Module.stringToUTF8(name.value, pname, 1024);
+          _sayhello(pout, 1024, pname);
+          output.value = Module.UTF8ToString(pout);
+        }
+        else
+          alert("Please enter your name");
+      }
     </script>
   </head>
   <body>
-    <input type="text" id="output" />
-    <input type="text" id="name" />
-    <input type="button" id="btn" value="Click me to execute hello world!" />
+    <label>OUTPUT</label>
+    <input type="text" id="output" /><br/>
+    <label>NAME</label>
+    <input type="text" id="name" maxlength=100/></br>
+    <input type="button" id="activate" value="Click for Hello" onclick="hello()"/>
   </body>
 </html>
