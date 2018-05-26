@@ -1,2 +1,2 @@
-# TestingWASM 123
-Testing Web Assembly 123
+# TestingWASM
+Testing Web Assembly
