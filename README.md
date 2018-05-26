@@ -1,4 +1,4 @@
-# How to compile portion
+# How to compile
 ```
 emcc helloworld.c -s "EXTRA_EXPORTED_RUNTIME_METHODS=['stringToUTF8','UTF8ToString']"
 ```
